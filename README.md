@@ -1,0 +1,68 @@
+
+# mustargs
+
+## Introduction
+`mustargs` is a minimalistic library designed for parsing command-line arguments in Node.js applications. It serves as a lightweight alternative to more extensive libraries like `yargs`, focusing on simplicity and ease of use. With `mustargs`, you can effortlessly convert CLI commands into a structured JavaScript object, making command-line data handling more intuitive and straightforward.
+
+## Features
+- **ESModule Support**: `mustargs` is implemented as an ESModule, ensuring compatibility with modern JavaScript projects.
+- **Nested Object Parsing**: Easily parse command-line arguments into nested objects using dot notation.
+- **Array Parsing**: Arguments separated by commas are parsed into arrays.
+- **Type Parsing**: Automatically converts numeric values to numbers.
+
+## Installation
+
+`mustargs` is available as an independent package on npm and can be installed in your Node.js project. Since it is exclusively an ESModule, ensure your environment supports ESModule syntax. To install `mustargs`, run the following command in your project directory:
+
+```bash
+npm install mustargs
+```
+
+## Usage
+To use `mustargs`, import it into your Node.js project using ESModule syntax:
+
+```javascript
+import mustargs from 'mustargs';
+
+const args = mustargs(process.argv.slice(2));
+```
+
+## Simulation
+This script simulates command-line input and uses mustargs to parse the arguments into a JavaScript object.
+
+```javascript
+const simulatedInput = [
+    'node', 'example.js', '-i', 'images/*', '--api', 'resize.width=512', 'resize.height=256', '--format', 'jpeg,png'
+];
+
+const parsedArgs = mustargs(simulatedInput.slice(2));
+
+const simulatedOutput = {
+  i: "images/*",
+  api: {
+    resize: {
+        width: 512,
+        height: 256,
+    }
+  },
+  format: ["jpeg", "png"]
+}
+
+```
+
+## Important: Setting `type` to `module` in `package.json`
+
+When using `mustargs` in your project, it's crucial to ensure that your Node.js environment recognizes ESModule syntax. For this, you need to add the following line to your project's `package.json`:
+
+```json
+{
+    "type": "module",
+}
+```
+
+## Contributing
+Contributions to `mustargs` are welcome.
+
+## License
+`mustargs` is licensed under the MIT License.
+

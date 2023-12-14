@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# TypeScript source files
+src/
+
+# TypeScript build config
+tsconfig.json
+
+# Testing and coverage
+coverage/
+*.test.js
+*.test.ts
+*.spec.ts
+jest.config.js
+
+# Development tools
+.nyc_output/
+*.log
+*.tgz
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/

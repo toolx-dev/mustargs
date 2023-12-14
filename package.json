@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "standard": "^17.1.0",
+    "standard-version": "^9.5.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "name": "mustargs",
+  "version": "1.0.2",
+  "description": "A Minimal CLI parser with array and nested object support for simple JS object conversion.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc --watch",
+    "build": "tsc -p tsconfig.json",
+    "test": "jest",
+    "lint": "standard",
+    "release": "standard-version",
+    "release:soft": "standard-version --skip.bump --skip.commit --skip.tag"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williammanco/mustargs.git"
+  },
+  "keywords": [
+    "CLI",
+    "parser",
+    "yargs"
+  ],
+  "author": "William Manco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/williammanco/mustargs/issues"
+  },
+  "homepage": "https://github.com/williammanco/mustargs#readme"
+}
