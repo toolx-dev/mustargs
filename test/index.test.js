@@ -6,6 +6,11 @@ describe('mustargs', () => {
     expect(mustargs(args)).toEqual({ i: 'images' })
   })
 
+  it('should parse simple key-value pairs with array', () => {
+    const args = ['-i', 'images', 'text']
+    expect(mustargs(args)).toEqual({ i: ['images', 'text']})
+  })
+
   it('should parse nested objects', () => {
     const args = ['--foo', 'a.b=1', 'a.c=2']
     expect(mustargs(args)).toEqual({ foo: { a: { b: 1, c: 2 } } })
@@ -22,12 +27,15 @@ describe('mustargs', () => {
   })
 
   it('should handle complex nested structures', () => {
-    const args = ['--config', 'database.host=localhost', 'database.port=5432', 'server.enabled=true', 'server.port=8080']
+    const args = ['--config', 'database.host=localhost', 'database.port=5432', 'server.enabled=true', 'server.port=8080', '-i', 'images', 'text', '--foo', 'a.b=1', 'a.c=2', '-u', 'images']
     expect(mustargs(args)).toEqual({
       config: {
         database: { host: 'localhost', port: 5432 },
         server: { enabled: true, port: 8080 }
-      }
+      },
+      i: ['images', 'text'],
+      u: 'images',
+      foo: { a: { b: 1, c: 2 } }
     })
   })
 })

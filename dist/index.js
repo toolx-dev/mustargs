@@ -6,6 +6,7 @@ function mustargs(args) {
             if (typeof parsedArguments[key] !== 'object' || parsedArguments[key] === null) {
                 parsedArguments[key] = {};
             }
+            let values = [];
             while (i + 1 < args.length && !args[i + 1].startsWith('-')) {
                 i++;
                 const valuePair = args[i];
@@ -44,7 +45,8 @@ function mustargs(args) {
                     }
                 }
                 else {
-                    parsedArguments[key] = valuePair.includes(',') ? parseArray(valuePair) : parseValue(valuePair);
+                    values.push(parseValue(valuePair));
+                    parsedArguments[key] = valuePair.includes(',') ? parseArray(valuePair) : values.length <= 1 ? values[0] : values;
                 }
             }
         }

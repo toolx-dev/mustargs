@@ -18,6 +18,8 @@ function mustargs(args: string[]): ParsedArgs {
                 parsedArguments[key] = {};
             }
 
+            let values = [];
+
             while (i + 1 < args.length && !args[i + 1].startsWith('-')) {
                 i++;
                 const valuePair: string = args[i];
@@ -54,7 +56,8 @@ function mustargs(args: string[]): ParsedArgs {
                         (parsedArguments[key] as NestedObject)[path] = value;
                     }
                 } else {
-                    parsedArguments[key] = valuePair.includes(',') ? parseArray(valuePair) : parseValue(valuePair);
+                    values.push(parseValue(valuePair))
+                    parsedArguments[key] = valuePair.includes(',') ? parseArray(valuePair) : values.length <= 1 ? values[0] : values;
                 }
             }
         }
