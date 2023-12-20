@@ -18,7 +18,7 @@ function mustargs(args: string[]): MustargsParsedArgs {
                 parsedArguments[key] = {};
             }
 
-            let values = [];
+            let values = [] as MustargsParsedValue[];
 
             while (i + 1 < args.length && !args[i + 1].startsWith('-')) {
                 i++;
