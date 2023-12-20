@@ -1,9 +1,9 @@
-type ParsedValue = string | number | boolean;
-interface NestedObject {
-    [key: string]: ParsedValue | ParsedValue[] | NestedObject;
+export type MustargsParsedValue = string | number | boolean;
+export interface MustargsNestedObject {
+    [key: string]: MustargsParsedValue | MustargsParsedValue[] | MustargsNestedObject;
 }
-type ParsedArgs = {
-    [key: string]: ParsedValue | ParsedValue[] | NestedObject;
+export type MustargsParsedArgs = {
+    [key: string]: MustargsParsedValue | MustargsParsedValue[] | MustargsNestedObject;
 };
-declare function mustargs(args: string[]): ParsedArgs;
+declare function mustargs(args: string[]): MustargsParsedArgs;
 export default mustargs;
