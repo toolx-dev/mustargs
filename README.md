@@ -1,5 +1,5 @@
-
 # mustargs
+<img src="https://github.com/williammanco/mustargs/blob/main/mustargs.png" width="300" height="auto" />
 
 ## Introduction
 `mustargs` is a minimalistic library designed for parsing command-line arguments in Node.js applications. It serves as a lightweight alternative to more extensive libraries like `yargs`, focusing on simplicity and ease of use. With `mustargs`, you can effortlessly convert CLI commands into a structured JavaScript object, making command-line data handling more intuitive and straightforward.
@@ -7,7 +7,7 @@
 ## Features
 - **ESModule Support**: `mustargs` is implemented as an ESModule, ensuring compatibility with modern JavaScript projects.
 - **Nested Object Parsing**: Easily parse command-line arguments into nested objects using dot notation.
-- **Array Parsing**: Arguments separated by commas are parsed into arrays.
+- **Array Parsing**: Arguments separated by commas or spaces are parsed into arrays.
 - **Type Parsing**: Automatically converts numeric values to numbers.
 
 ## Installation
@@ -32,18 +32,19 @@ This script simulates command-line input and uses mustargs to parse the argument
 
 ```javascript
 const simulatedInput = [
-    'node', 'example.js', '-i', 'images/*', '--api', 'resize.width=512', 'resize.height=256', '--format', 'jpeg,png'
+    'node', 'example.js', '-i', 'images', '--api', 'resize.width=512', 'resize.height=256', 'sizes=256,512', '--format', 'jpeg', 'png'
 ];
 
 const parsedArgs = mustargs(simulatedInput.slice(2));
 
 const simulatedOutput = {
-  i: "images/*",
+  i: "images",
   api: {
     resize: {
         width: 512,
         height: 256,
-    }
+    },
+    sizes: [256, 512]
   },
   format: ["jpeg", "png"]
 }
@@ -61,7 +62,7 @@ When using `mustargs` in your project, it's crucial to ensure that your Node.js 
 ```
 
 ## Contributing
-Contributions to `mustargs` are welcome.
+Contributions to `mustargs` are welcome. This library is part of the [toolx](https://github.com/williammanco/toolx) library.
 
 ## License
 `mustargs` is licensed under the MIT License.
