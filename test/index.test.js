@@ -11,14 +11,19 @@ describe('mustargs', () => {
     expect(mustargs(args)).toEqual({ i: ['images', 'text']})
   })
 
+  it('should parse simple key-value pairs with array (by commas)', () => {
+    const args = ['-i', 'images,text']
+    expect(mustargs(args)).toEqual({ i: ['images', 'text']})
+  })
+
   it('should parse nested objects', () => {
     const args = ['--foo', 'a.b=1', 'a.c=2']
     expect(mustargs(args)).toEqual({ foo: { a: { b: 1, c: 2 } } })
   })
 
   it('should handle arrays and mixed types', () => {
-    const args = ['--foo', 'a.b=1,2,3', 'a.c=hello', 'a.d=4.5']
-    expect(mustargs(args)).toEqual({ foo: { a: { b: [1, 2, 3], c: 'hello', d: 4.5 } } })
+    const args = ['--foo', 'a.b=1,2,3', 'a.c=hello', 'a.d=4.5', 'a.e=hello,foo']
+    expect(mustargs(args)).toEqual({ foo: { a: { b: [1, 2, 3], c: 'hello', d: 4.5, e: ['hello', 'foo'] } } })
   })
 
   it('should support multiple keys', () => {
