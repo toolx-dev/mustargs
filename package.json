@@ -6,7 +6,7 @@
     "typescript": "^5.3.3"
   },
   "name": "mustargs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Minimal CLI parser with array and nested object support for simple JS object conversion.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
