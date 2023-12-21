@@ -1,5 +1,16 @@
+<p align="center">
+  <a href="https://www.npmjs.com/package/mustargs" target="_blank" rel="noopener noreferrer">
+    <img width="180" src="mustargs.png" alt="mustargs logo" />
+  </a>
+</p>
+<br/>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@toolx/core"><img src="https://img.shields.io/npm/v/mustargs" alt="npm package"></a>
+  <img alt="NPM" src="https://img.shields.io/npm/l/mustargs">
+</p>
+<br/>
+
 # mustargs
-<img src="https://github.com/williammanco/mustargs/blob/main/mustargs.png" width="300" height="auto" />
 
 ## Introduction
 `mustargs` is a minimalistic library designed for parsing command-line arguments in Node.js applications. It serves as a lightweight alternative to more extensive libraries like `yargs`, focusing on simplicity and ease of use. With `mustargs`, you can effortlessly convert CLI commands into a structured JavaScript object, making command-line data handling more intuitive and straightforward.
