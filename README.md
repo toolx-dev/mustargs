@@ -51,7 +51,8 @@ const simulatedInput = [
 
 const parsedArgs = mustargs(simulatedInput.slice(2));
 
-const simulatedOutput = {
+/** output
+{
   i: "images",
   api: {
     resize: {
@@ -62,7 +63,7 @@ const simulatedOutput = {
   },
   format: ["jpeg", "png"]
 }
-
+*/
 ```
 
 ## Important: Setting `type` to `module` in `package.json`
