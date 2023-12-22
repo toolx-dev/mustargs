@@ -7,6 +7,9 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@toolx/core"><img src="https://img.shields.io/npm/v/mustargs" alt="npm package"></a>
   <img alt="NPM" src="https://img.shields.io/npm/l/mustargs">
+  <a href="https://github.com/toolx-dev/mustargs/actions/workflows/node.js.yml">
+      <img src="https://github.com/toolx-dev/mustargs/actions/workflows/node.js.yml/badge.svg" alt="Workflow status badge" loading="lazy">
+  </a>
 </p>
 <br/>
 
